@@ -12,10 +12,10 @@ Implements the Producer-Consumer Problem using:
 
 Design Overview:
 
-Resource 	Type 	Purpose
-/table_shm 	POSIX shared memory 	Shared buffer for items
-/mutex_sem 	POSIX semaphore 	Protect shared access (mutual exclusion)
-/empty_sem 	POSIX semaphore 	Counts empty slots in buffer
+Resource 	Type 	Purpose  
+/table_shm 	POSIX shared memory 	Shared buffer for items  
+/mutex_sem 	POSIX semaphore 	Protect shared access (mutual exclusion)  
+/empty_sem 	POSIX semaphore 	Counts empty slots in buffer  
 /full_sem 	POSIX semaphore 	Counts full slots in buffer
 
 Table capacity: 2
