@@ -1,26 +1,25 @@
 # Programming-Assignment-1
 
-Description:
+## Description:
 
-Implements the Producer-Consumer Problem using:
+### Implements the Producer-Consumer Problem using:
 
     POSIX threads
-
     POSIX semaphores
-
     Shared memory
 
-Design Overview:
+## Design Overview:
 
-Resource 	Type 	Purpose  
-/table_shm 	POSIX shared memory 	Shared buffer for items  
-/mutex_sem 	POSIX semaphore 	Protect shared access (mutual exclusion)  
-/empty_sem 	POSIX semaphore 	Counts empty slots in buffer  
-/full_sem 	POSIX semaphore 	Counts full slots in buffer
+**Resource |	Type |	Purpose**  
 
-Table capacity: 2
+/table_shm |	POSIX shared memory |	Shared buffer for items  
+/mutex_sem |	POSIX semaphore |	Protect shared access (mutual exclusion)  
+/empty_sem |	POSIX semaphore |	Counts empty slots in buffer  
+/full_sem |	POSIX semaphore |	Counts full slots in buffer
 
-Shared Memory Structure:
+    Table capacity: 2
+
+## Shared Memory Structure:
 
 #define BUFFER_SIZE 2
 
@@ -31,28 +30,27 @@ typedef struct {
 } shared_table;
 
     in – index for next produced item
-
     out – index for next consumed item
 
-Build:
+## Build:
 
-gcc producer.c -pthread -lrt -o producer
-gcc consumer.c -pthread -lrt -o consumer
+    gcc producer.c -pthread -lrt -o producer  
+    gcc consumer.c -pthread -lrt -o consumer
 
-Run:
+## Run:
 
-./producer & ./consumer &
+    ./producer & ./consumer &
 
-Expected Output:
+## Expected Output:
 
-Produced item 1 at index 0
-Produced item 2 at index 1
-Consumed item 1 from index 0
-Produced item 3 at index 0
-Consumed item 2 from index 1
-...
+    Produced item 1 at index 0  
+    Produced item 2 at index 1  
+    Consumed item 1 from index 0  
+    Produced item 3 at index 0  
+    Consumed item 2 from index 1
+    ...
 
-Notes:
+## Notes:
 
     This design uses shared memory to represent the buffer.
 
